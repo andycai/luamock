@@ -31,10 +31,70 @@ function meta.int(min, max)
     return math.random(min, max)
 end
 
+function meta.char(type)
+    local c = ''
+    if type == nil then
+        type = 'alpha'
+    end
+    if type == 'all' then
+        c = constant[math.random(1, 74)]
+    elseif type == 'alpha' then
+        c = constant[math.random(11, 62)]
+    elseif type == 'lower' then
+        c = constant[math.random(11, 36)]
+    elseif type == 'upper' then
+        c = constant[math.random(37, 62)]
+    elseif type == 'number' then
+        c = constant[math.random(1, 10)]
+    elseif type == 'symbol' then
+        c = constant[math.random(63, 74)]
+    else
+        local len = #type
+        local i = math.random(1, len)
+        c = string.sub(type, i, i)
+    end 
+    return c
+end
+
+function meta.string(pool, min, max)
+    local len = 0
+    if max == nil then
+        len = min
+    else
+        len = math.random(min, max)
+    end
+    local str = ''
+    for i = 1, len do
+        str = str .. meta.char(pool)
+    end
+    return str
+end
+
+function meta.range(start, stop, step)
+    if start < 0 then
+        start = 0
+    end
+    if stop <= start then
+        stop = start + 5
+    end
+    if step == nil then
+        step = 1
+    end
+    local range = {}
+    for i = start, stop, step do
+        range[#range + 1] = i
+    end
+    return range
+end
+
 -- print(meta.bool())
 -- print(meta.natural(10, 20))
 -- print(meta.natural(-10, 200))
 -- print(meta.int(10, 20))
 -- print(meta.int(10, 2))
+-- print(meta.char('all'))
+-- print(meta.char())
+-- print(meta.char('ab@#$%^&*cdefghijk'))
+-- print(meta.string('ab@#$%^&*cdefghijk', 3, 6))
 
 return meta
