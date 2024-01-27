@@ -1,4 +1,5 @@
-require('init')
+local utils = require('utils')
+utils.randseed()
 
 local meta = {}
 
@@ -49,12 +50,12 @@ local clastNames =
     "平 刚 桂英"
 
 function meta.firstname()
-    table.shuffle(firstNames)
+    utils.shuffle(firstNames)
     return firstNames[1]
 end
 
 function meta.lastname()
-   table.shuffle(lastNames)
+    utils.shuffle(lastNames)
     return lastNames[1]
 end
 
@@ -67,26 +68,19 @@ function meta.fullname(m)
 end
 
 function meta.cfirstname()
-    local tbl = string.split(cfirstNames, " ")
-    table.shuffle(tbl)
+    local tbl = utils.split(cfirstNames, " ")
+    utils.shuffle(tbl)
     return tbl[1]
 end
 
 function meta.clastname()
-    local tbl = string.split(clastNames, " ")
-    table.shuffle(tbl)
+    local tbl = utils.split(clastNames, " ")
+    utils.shuffle(tbl)
     return tbl[1]
 end
 
 function meta.cfullname()
     return meta.cfirstname() .. meta.clastname()
 end
-
--- print(meta.firstname())
--- print(meta.lastname())
--- print(meta.fullname(true))
--- print(meta.cfirstname())
--- print(meta.clastname())
--- print(meta.cfullname())
 
 return meta

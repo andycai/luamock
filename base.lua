@@ -1,4 +1,5 @@
-require('init')
+local utils = require('utils')
+utils.randseed()
 
 local meta = {}
 
@@ -86,15 +87,5 @@ function meta.range(start, stop, step)
     end
     return range
 end
-
--- print(meta.bool())
--- print(meta.natural(10, 20))
--- print(meta.natural(-10, 200))
--- print(meta.int(10, 20))
--- print(meta.int(10, 2))
--- print(meta.char('all'))
--- print(meta.char())
--- print(meta.char('ab@#$%^&*cdefghijk'))
--- print(meta.string('ab@#$%^&*cdefghijk', 3, 6))
 
 return meta
