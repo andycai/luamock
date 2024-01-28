@@ -27,3 +27,7 @@ print(address.city(true))
 print(address.county())
 print(address.county(true))
 print(address.countyId())
+
+local web = require('web')
+print(web.TLD())
+print(web.IP())
