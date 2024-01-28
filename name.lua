@@ -50,13 +50,11 @@ local clastNames =
     "平 刚 桂英"
 
 function meta.firstname()
-    utils.shuffle(firstNames)
-    return firstNames[1]
+    return utils.pick(firstNames)
 end
 
 function meta.lastname()
-    utils.shuffle(lastNames)
-    return lastNames[1]
+    return utils.pick(lastNames)
 end
 
 function meta.fullname(m)
@@ -69,14 +67,12 @@ end
 
 function meta.cfirstname()
     local tbl = utils.split(cfirstNames, " ")
-    utils.shuffle(tbl)
-    return tbl[1]
+    return utils.pick(tbl)
 end
 
 function meta.clastname()
     local tbl = utils.split(clastNames, " ")
-    utils.shuffle(tbl)
-    return tbl[1]
+    return utils.pick(tbl)
 end
 
 function meta.cfullname()

@@ -1,3 +1,7 @@
+local math = math
+local string = string
+local table = table
+
 local meta = {}
 
 function meta.randseed()
@@ -20,6 +24,10 @@ function meta.split(s, sep)
 	end
 
 	return t
+end
+
+function meta.pick(tbl)
+	return tbl[math.random(1, #tbl)]
 end
 
 return meta

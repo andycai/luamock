@@ -4071,31 +4071,31 @@ end
 
 function meta.countyId()
     meta.init()
-    local province = meta._pList[base.natural(1, #meta._pList)]
+    local province = utils.pick(meta._pList)
     if province.children == nil or #province.children == 0 then
         return meta.countyId()
     end
-    local city = province.children[base.natural(1, #province.children)]
+    local city = utils.pick(province.children)
     if city.children == nil or #city.children == 0 then
         return meta.countyId()
     end
-    local county = city.children[base.natural(1, #city.children)]
+    local county = utils.pick(city.children)
 
     return county.id
 end
 
 function meta.province()
     meta.init()
-    return meta._pList[base.natural(1, #meta._pList)].name
+    return utils.pick(meta._pList).name
 end
 
 function meta.city(prefix)
     meta.init() 
-    local province = meta._pList[base.natural(1, #meta._pList)]
+    local province = utils.pick(meta._pList)
     if province.children == nil or #province.children == 0 then
         return meta.city(prefix)
     end
-    local city = province.children[base.natural(1, #province.children)]
+    local city = utils.pick(province.children)
 
     if prefix then
         return province.name .. ' ' .. city.name
@@ -4106,15 +4106,15 @@ end
 
 function meta.county(prefix)
     meta.init() 
-    local province = meta._pList[base.natural(1, #meta._pList)]
+    local province = utils.pick(meta._pList)
     if province.children == nil or #province.children == 0 then
         return meta.county(prefix)
     end
-    local city = province.children[base.natural(1, #province.children)]
+    local city = utils.pick(province.children)
     if city.children == nil or #city.children == 0 then
         return meta.county(prefix)
     end
-    local county = city.children[base.natural(1, #city.children)]
+    local county = utils.pick(city.children)
 
     if prefix then
         return province.name .. ' ' .. city.name .. ' ' .. county.name
