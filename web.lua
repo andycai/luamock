@@ -4,6 +4,11 @@ utils.randseed()
 
 local meta = {}
 
+function meta.protocol()
+    local str = "http ftp gopher mailto mid cid news nntp prospero telnet rlogin tn3270 wais"
+    return utils.pick(utils.split(str, ' '))
+end
+
 function meta.TLD()
     local str =
     -- 域名后缀
