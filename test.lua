@@ -28,6 +28,10 @@ print(address.county())
 print(address.county(true))
 print(address.countyId())
 
+local text = require('text')
+print(text.word())
+print(text.cword())
+
 local web = require('web')
 print(web.TLD())
 print(web.IP())
