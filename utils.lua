@@ -26,6 +26,14 @@ function meta.split(s, sep)
 	return t
 end
 
+function meta.capitalize(word)
+	return word:sub(1,1):upper() .. word:sub(2)
+end
+
+function meta.upper(str)
+	return str:upper()
+end
+
 function meta.pick(tbl)
 	return tbl[math.random(1, #tbl)]
 end
