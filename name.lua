@@ -1,5 +1,4 @@
 local utils = require('utils')
-utils.randseed()
 
 local meta = {}
 

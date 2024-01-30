@@ -1,6 +1,4 @@
-local utils = require('utils')
-local base = require('base')
-utils.randseed()
+local basic = require('basic')
 
 local meta = {}
 
@@ -33,8 +31,8 @@ local function data_format(date, fmt)
 end
 
 local function rand_date()
-    local year = base.natural(1970, tonumber(os.date("%Y", os.time())))
-    local month = base.natural(1, 12)
+    local year = basic.natural(1970, tonumber(os.date("%Y", os.time())))
+    local month = basic.natural(1, 12)
     local days_in_month = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
     if month == 2 and year % 4 == 0 and (year % 100 ~= 0 or year % 400 == 0) then
         days_in_month[2] = 29
@@ -44,9 +42,9 @@ local function rand_date()
         year = year,
         month = month,
         day = day,
-        hour = base.int(0, 23),
-        min = base.int(0, 59),
-        sec = base.int(0, 59)
+        hour = basic.int(0, 23),
+        min = basic.int(0, 59),
+        sec = basic.int(0, 59)
     }
 end
 

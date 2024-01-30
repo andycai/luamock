@@ -1,8 +1,6 @@
-local utils = require('utils')
-local base = require('base')
+local basic = require('basic')
 local address = require('address')
 local date = require('date')
-utils.randseed()
 
 local meta = {}
 
@@ -33,11 +31,11 @@ https://github.com/victorquinn/chancejs/blob/develop/chance.js#L1349
 --]==]
 function meta.GUID()
     local pool = 'abcdefABCDEF1234567890'
-    local guid = base.string(pool, 8) .. '-' ..
-          base.string(pool, 4) .. '-' ..
-          base.string(pool, 4) .. '-' ..
-          base.string(pool, 4) .. '-' ..
-          base.string(pool, 12)
+    local guid = basic.string(pool, 8) .. '-' ..
+          basic.string(pool, 4) .. '-' ..
+          basic.string(pool, 4) .. '-' ..
+          basic.string(pool, 4) .. '-' ..
+          basic.string(pool, 12)
     return guid
 end
 
@@ -60,7 +58,7 @@ function meta.ID()
     local last = {
         "1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"
     }
-    id = address.countyId() .. date.date('yyyyMMdd') .. base.string('number', 3)
+    id = address.countyId() .. date.date('yyyyMMdd') .. basic.string('number', 3)
     for i = 1, #id do
         -- print(id:sub(i, i) .. ", " .. rank[i])
         sum = sum + (tonumber(id:sub(i, i)) * tonumber(rank[i]))

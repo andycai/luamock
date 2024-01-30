@@ -1,6 +1,5 @@
 local utils = require('utils')
-local base = require('base')
-utils.randseed()
+local basic = require('basic')
 
 --[==[
 ## Address 字典数据
@@ -4066,7 +4065,7 @@ end
 
 function meta.region()
 	local REGION = {"东北", "华北", "华东", "华中", "华南", "西南", "西北"}
-    return REGION[base.natural(1, 7)]
+    return REGION[basic.natural(1, 7)]
 end
 
 function meta.countyId()
@@ -4129,7 +4128,7 @@ function meta.zip(len)
     end
     local zip = ''
     for i = 1, len do
-        zip = zip .. base.natural(0, 9)
+        zip = zip .. basic.natural(0, 9)
     end
     return zip
 end

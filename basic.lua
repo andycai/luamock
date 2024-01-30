@@ -49,7 +49,7 @@ function meta.char(type)
         local len = #type
         local i = math.random(1, len)
         c = string.sub(type, i, i)
-    end 
+    end
     return c
 end
 

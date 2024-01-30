@@ -1,7 +1,6 @@
 local utils = require('utils')
-local base = require('base')
+local basic = require('basic')
 local text = require('text')
-utils.randseed()
 
 local meta = {}
 
@@ -39,11 +38,11 @@ end
 
 function meta.email(host)
     host = host or meta.domain()
-    return base.char('lower') .. text.word() .. '@' .. host
+    return basic.char('lower') .. text.word() .. '@' .. host
 end
 
 function meta.IP()
-    return base.int(1, 255) .. '.' .. base.int(1, 255) .. '.' .. base.int(1, 255) .. '.' .. base.int(1, 255)
+    return basic.int(1, 255) .. '.' .. basic.int(1, 255) .. '.' .. basic.int(1, 255) .. '.' .. basic.int(1, 255)
 end
 
 return meta
