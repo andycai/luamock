@@ -33,7 +33,11 @@ print(text.word())
 print(text.cword())
 
 local web = require('web')
+print(web.URL())
+print(web.protocol())
+print(web.domain())
 print(web.TLD())
+print(web.email())
 print(web.IP())
 
 local date = require('date')
