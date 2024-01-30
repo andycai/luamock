@@ -15,12 +15,8 @@ function meta.bool()
 end
 
 function meta.natural(min, max)
-    if min < 0 then
-        min = 0
-    end
-    if max <= 0 then
-        max = 2^16
-    end
+    min = min or 0
+    max = max or (2^16)
     return math.random(min, max)
 end
 
@@ -72,9 +68,7 @@ function meta.string(pool, min, max)
 end
 
 function meta.range(start, stop, step)
-    if start < 0 then
-        start = 0
-    end
+    start = start or 0
     if stop <= start then
         stop = start + 5
     end

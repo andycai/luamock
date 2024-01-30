@@ -51,30 +51,22 @@ local function rand_date()
 end
 
 function meta.date(fmt)
-    if fmt == nil then
-        fmt = 'yyyy-MM-dd'
-    end
+    fmt = fmt or 'yyyy-MM-dd'
     return data_format(rand_date(), fmt)
 end
 
 function meta.time(fmt)
-    if fmt == nil then
-        fmt = 'HH:mm:ss'
-    end
+    fmt = fmt or 'HH:mm:ss'
     return data_format(rand_date(), fmt)
 end
 
 function meta.datetime(fmt)
-    if fmt == nil then
-        fmt = 'yyyy-MM-dd HH:mm:ss'
-    end
+    fmt = fmt or 'yyyy-MM-dd HH:mm:ss'
     return data_format(rand_date(), fmt)
 end
 
 function meta.now(fmt)
-    if fmt == nil then
-        fmt = 'yyyy-MM-dd HH:mm:ss'
-    end
+    fmt = fmt or 'yyyy-MM-dd HH:mm:ss'
     return data_format(os.time(), fmt)
 end
 
