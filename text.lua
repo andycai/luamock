@@ -97,4 +97,48 @@ function meta.ctitle(min, max)
     return utils.trim(result)
 end
 
+function meta.sentence(min, max)
+    min = min or 12
+    max = max or 18
+    local len = basic.natural(min, max)
+    local result = ''
+    for i = 1, len do
+        result = result .. utils.capitalize(meta.word()) .. ' '
+    end
+    return utils.trim(result) .. '.'
+end
+
+function meta.csentence(min, max)
+    min = min or 12
+    max = max or 18
+    local len = basic.natural(min, max)
+    local result = ''
+    for i = 1, len do
+        result = result .. meta.cword()
+    end
+    return utils.trim(result) .. '。'
+end
+
+function meta.paragraph(min, max)
+    min = min or 3
+    max = max or 8
+    local len = basic.natural(min, max)
+    local result = ''
+    for i = 1, len do
+        result = result .. utils.capitalize(meta.sentence()) .. ' '
+    end
+    return utils.trim(result)
+end
+
+function meta.cparagraph(min, max)
+    min = min or 3
+    max = max or 8
+    local len = basic.natural(min, max)
+    local result = ''
+    for i = 1, len do
+        result = result .. meta.csentence()
+    end
+    return utils.trim(result)
+end
+
 return meta
