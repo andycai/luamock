@@ -5,23 +5,31 @@ utils.randseed()
 local meta = {}
 
 local formats = {
-    yyyy = '%Y',
-    MM = '%m',
-    dd = '%d',
-    HH = '%H',
-    mm = '%M',
-    ss = '%S'
+    yyyy = '%%Y',
+    MM = '%%m',
+    dd = '%%d',
+    HH = '%%H',
+    mm = '%%M',
+    ss = '%%S'
 }
 
-local function data_format(date, format)
+local function replace_fmt(fmt)
+    -- fmt = fmt:gsub('%w+', formats)
+    for key, value in pairs(formats) do
+        fmt = fmt:gsub(key, value)
+    end
+    return fmt
+end
+
+local function data_format(date, fmt)
     if type(date) == "string" or type(date) == "table" then
         -- date = os.date("*t", os.time(date))
         date = os.time(date)
     elseif type(date) ~= "number" then
         return ""
     end
-    format = format:gsub('[%a]+', formats)
-    return os.date(format, date)
+    fmt = replace_fmt(fmt)
+    return os.date(fmt, date)
 end
 
 local function rand_date()
