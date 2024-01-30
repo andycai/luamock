@@ -63,7 +63,8 @@ function meta.ID()
         -- print(id:sub(i, i) .. ", " .. rank[i])
         sum = sum + (tonumber(id:sub(i, i)) * tonumber(rank[i]))
     end
-    id = id .. last[sum % 11]
+    -- print("sum:" .. tostring(sum))
+    id = id .. last[(sum % 11)+1]
 
     return id
 end
