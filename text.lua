@@ -76,4 +76,26 @@ function meta.cword(min, max)
     return result
 end
 
+function meta.title(min, max)
+    min = min or 3
+    max = max or 8
+    local len = base.natural(min, max)
+    local result = ''
+    for i = 1, len do
+        result = result .. utils.capitalize(meta.word()) .. ' '
+    end
+    return utils.trim(result)
+end
+
+function meta.ctitle(min, max)
+    min = min or 3
+    max = max or 8
+    local len = base.natural(min, max)
+    local result = ''
+    for i = 1, len do
+        result = result .. meta.cword() .. ' '
+    end
+    return utils.trim(result)
+end
+
 return meta

@@ -38,4 +38,8 @@ function meta.pick(tbl)
 	return tbl[math.random(1, #tbl)]
 end
 
+function meta.trim(s)
+	return (s:gsub("^%s*(.-)%s*$", "%1"))
+end
+
 return meta
