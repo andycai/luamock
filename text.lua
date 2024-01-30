@@ -29,6 +29,11 @@ function meta.utf8len(str)
     return len
 end
 
+function meta.utf8_len(str)
+    local _, count = string.gsub(str, "[^\128-\191]", "")
+    return count
+end
+
 function meta.utf8sub(str, start, num)
     local startIndex = 1
     while start > 1 do
